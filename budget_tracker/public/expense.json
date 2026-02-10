@@ -1,0 +1,29 @@
+[
+  {
+    "id": "EXP-1001",
+    "name": "Groceries (Weekly)",
+    "category": "Food",
+    "amount": 86.4,
+    "notes": "Bought fruits, vegetables, and pantry items.",
+    "date": "2026-02-01",
+    "reconciled": true
+  },
+  {
+    "id": "EXP-1002",
+    "name": "Grab / Taxi",
+    "category": "Transport",
+    "amount": 18.9,
+    "notes": "Office commute.",
+    "date": "2026-02-06",
+    "reconciled": false
+  },
+  {
+    "id": "EXP-1003",
+    "name": "Mobile Data Top-up",
+    "category": "Utilities",
+    "amount": 20,
+    "notes": "",
+    "date": "2026-02-08",
+    "reconciled": true
+  }
+]

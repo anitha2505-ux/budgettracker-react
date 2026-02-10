@@ -1,0 +1,304 @@
+/* =====================================================
+   GLOBAL DESIGN SYSTEM
+   Cyan • Green • Black • White
+===================================================== */
+
+:root {
+  /* Primary palette */
+  --cyan: #00c2ff;
+  --cyan-dark: #00a6dc;
+
+  --green: #20c997;
+  --green-dark: #17a37a;
+
+  --black: #0b1220;
+  --black-soft: #111827;
+
+  --white: #ffffff;
+  --grey-muted: #6b7280;
+
+  /* Surfaces */
+  --bg-soft: #f6fbff;
+  --surface: #ffffff;
+
+  /* Borders & shadows */
+  --border-soft: rgba(17, 24, 39, 0.10);
+  --shadow-soft: 0 10px 28px rgba(17, 24, 39, 0.10);
+
+  /* Focus */
+  --focus-ring: 0 0 0 0.25rem rgba(0, 194, 255, 0.35);
+}
+
+/* =====================================================
+   GLOBAL BASE
+===================================================== */
+
+body {
+  background-color: var(--bg-soft);
+}
+
+.app-bg {
+  background: linear-gradient(180deg, #ffffff 0%, var(--bg-soft) 100%);
+  color: var(--black-soft);
+}
+
+/* =====================================================
+   NAVBAR (DARK)
+===================================================== */
+
+.navbar {
+  background-color: var(--black) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar-brand {
+  color: var(--white) !important;
+  font-weight: 700;
+}
+
+.navbar-brand:hover {
+  color: var(--white) !important;
+}
+
+.brand-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: var(--cyan);
+  display: inline-block;
+  box-shadow: 0 0 0 4px rgba(0, 194, 255, 0.18);
+}
+
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.85) !important;
+  font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+  color: var(--white) !important;
+}
+
+.navbar .nav-link.active {
+  color: var(--white) !important;
+  position: relative;
+}
+
+.navbar .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: 0.4rem;
+  right: 0.4rem;
+  bottom: -0.25rem;
+  height: 3px;
+  border-radius: 999px;
+  background-color: var(--cyan);
+}
+
+/* Mobile toggler */
+.navbar-toggler {
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
+}
+
+/* =====================================================
+   HERO SECTION (SOLID COLOR)
+===================================================== */
+
+.hero-grad {
+  background-color: var(--cyan);
+  color: #07121a;
+}
+
+.hero-grad h1,
+.hero-grad h2,
+.hero-grad h3,
+.hero-grad h4 {
+  color: #07121a;
+}
+
+.hero-grad .text-muted {
+  color: rgba(7, 18, 26, 0.75) !important;
+}
+
+.hero-grad .badge {
+  background-color: var(--green) !important;
+  color: #07121a;
+}
+
+/* =====================================================
+   CARDS
+===================================================== */
+
+.soft-card {
+  background: var(--surface);
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+  border-radius: 16px;
+}
+
+.card-accent-bar {
+  height: 6px;
+  background: linear-gradient(90deg, var(--cyan), var(--green));
+}
+
+/* =====================================================
+   FLIP CARD
+===================================================== */
+
+.flip-wrap {
+  perspective: 1200px;
+}
+
+.flip-card {
+  position: relative;
+  width: 100%;
+  min-height: 230px;
+  transform-style: preserve-3d;
+  transition: transform 420ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.flip-card.is-flipped {
+  transform: rotateY(180deg);
+}
+
+.flip-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+.flip-back {
+  transform: rotateY(180deg);
+}
+
+/* =====================================================
+   BUTTONS
+===================================================== */
+
+.btn-primary {
+  background-color: var(--cyan);
+  border-color: var(--cyan);
+  color: #07121a;
+  font-weight: 600;
+}
+
+.btn-primary:hover,
+.btn-primary:focus {
+  background-color: var(--cyan-dark);
+  border-color: var(--cyan-dark);
+  color: #07121a;
+}
+
+.btn-primary:focus {
+  box-shadow: var(--focus-ring);
+}
+
+.btn-outline-primary {
+  color: var(--cyan-dark);
+  border-color: rgba(0, 194, 255, 0.65);
+  font-weight: 600;
+}
+
+.btn-outline-primary:hover {
+  background-color: var(--cyan);
+  border-color: var(--cyan);
+  color: #07121a;
+}
+
+.btn-soft-primary {
+  background: rgba(0, 194, 255, 0.12);
+  border: 1px solid rgba(0, 194, 255, 0.30);
+  color: var(--cyan-dark);
+  font-weight: 600;
+}
+
+.btn-soft-primary:hover {
+  background: rgba(0, 194, 255, 0.18);
+  border-color: rgba(0, 194, 255, 0.45);
+}
+
+/* Success (green) */
+.btn-success {
+  background-color: var(--green);
+  border-color: var(--green);
+  color: #071a12;
+  font-weight: 600;
+}
+
+.btn-success:hover {
+  background-color: var(--green-dark);
+  border-color: var(--green-dark);
+}
+
+/* =====================================================
+   BADGES & TEXT
+===================================================== */
+
+.text-bg-primary {
+  background: linear-gradient(90deg, var(--cyan), var(--green)) !important;
+  color: #07121a !important;
+}
+
+.text-muted {
+  color: var(--grey-muted) !important;
+}
+
+/* =====================================================
+   FORMS
+===================================================== */
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: rgba(0, 194, 255, 0.55);
+  box-shadow: var(--focus-ring);
+}
+
+.form-check-input:checked {
+  background-color: var(--green);
+  border-color: var(--green);
+}
+
+/* =====================================================
+   ALERTS & MODALS
+===================================================== */
+
+.alert {
+  border: 1px solid rgba(17, 24, 39, 0.08);
+}
+
+.modal-backdrop {
+  background-color: rgba(11, 18, 32, 0.55);
+}
+
+/* =====================================================
+   FLASH BAR
+===================================================== */
+
+.flash-wrap {
+  position: sticky;
+  top: 56px;
+  z-index: 1020;
+}
+
+/* =====================================================
+   MISC POLISH
+===================================================== */
+
+hr {
+  border-top: 1px solid rgba(17, 24, 39, 0.10);
+}
+
+a {
+  color: var(--cyan-dark);
+}
+
+a:hover {
+  color: var(--cyan-dark);
+  text-decoration: none;
+}
