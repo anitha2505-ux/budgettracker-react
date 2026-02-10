@@ -30,7 +30,7 @@ export default function Tracker() {
   const [editOpen, setEditOpen] = useState(false);
   const [editing, setEditing] = useState(null);
 
-  // ✅ Bootstrap delete confirmation modal state
+  // Bootstrap delete confirmation modal state
   const [deleteOpen, setDeleteOpen] = useState(false);
   const [deleting, setDeleting] = useState(null);
 
@@ -108,13 +108,13 @@ export default function Tracker() {
     setEditing(null);
   }
 
-  // ✅ Open bootstrap delete confirmation modal
+  // Open bootstrap delete confirmation modal
   function requestDelete(expense) {
     setDeleting(expense);
     setDeleteOpen(true);
   }
 
-  // ✅ Confirm delete (after modal confirm button)
+  // Confirm delete (after modal confirm button)
   function confirmDelete() {
     if (!deleting) return;
 
@@ -176,7 +176,7 @@ export default function Tracker() {
               <ExpenseCard
                 expense={e}
                 onEdit={() => onEdit(e)}
-                onDelete={() => requestDelete(e)}   // ✅ use modal
+                onDelete={() => requestDelete(e)}   // use modal
                 onToggleReconciled={onToggleReconciled}
               />
             </div>
