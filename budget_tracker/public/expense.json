@@ -25,5 +25,14 @@
     "notes": "",
     "date": "2026-02-08",
     "reconciled": true
+  },
+  {
+    "id": "EXP-1004",
+    "name": "Lenovo Laptop",
+    "category": "IT Expense",
+    "amount": 2200.00,
+    "notes": "For Staff:1 HR team",
+    "date": "2026-02-08",
+    "reconciled": false
   }
 ]

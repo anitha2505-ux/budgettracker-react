@@ -6,13 +6,20 @@ import ExpenseCard from "../components/ExpenseCard.jsx";
 import ExpenseModal from "../components/ExpenseModal.jsx";
 import DeleteConfirmModal from "../components/DeleteConfirmModal.jsx";
 
+// This line defines a constant key name used to store and retrieve expense data from localStorage
 const STORAGE_KEY = "infinix_expenses_v1";
+
+/* This function generates a random 4-digit number and prefixes it with "EXP-" to create a unique-looking expense ID (for example, EXP-4821).
+It is used to automatically assign an ID when a new expense is added and the user does not provide one. */
 
 function makeId() {
   const n = Math.floor(1000 + Math.random() * 9000);
   return `EXP-${n}`;
 }
 
+// safely converts a JSON string into a JavaScript object.
+// If the JSON is valid, it returns the parsed object
+// If the JSON is invalid or corrupted, it returns null instead of crashing the app
 function safeParse(json) {
   try {
     return JSON.parse(json);
@@ -35,6 +42,7 @@ export default function Tracker() {
   const [deleting, setDeleting] = useState(null);
 
   // Prefill once (localStorage -> else expense.json)
+  // This useEffect initialises the expense data when the Tracker page loads.
   useEffect(() => {
     const cached = safeParse(localStorage.getItem(STORAGE_KEY) || "");
     if (Array.isArray(cached) && cached.length > 0) {
@@ -58,16 +66,20 @@ export default function Tracker() {
   }, [setExpenses, setFlash]);
 
   // Persist changes
+  // synchronises the expense state with localStorage, ensuring data persistence whenever the expenses array changes.
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(expenses));
   }, [expenses]);
 
+  // It derives computed data from state, not stored data. Calculates total amount, reconciled expenses, count of expenses from [expenses]
   const totals = useMemo(() => {
     const total = expenses.reduce((sum, e) => sum + Number(e.amount || 0), 0);
     const reconciled = expenses.filter((e) => e.reconciled).length;
     return { total, reconciled, count: expenses.length };
   }, [expenses]);
 
+  // Cleans and normalises user input, Creates a valid expense object, Adds it to global state
+// Shows a success message, Closes the modal
   function onAddSave(payload) {
     const next = {
       ...payload,
@@ -79,7 +91,7 @@ export default function Tracker() {
       date: String(payload.date || "").slice(0, 10),
       reconciled: !!payload.reconciled
     };
-
+    // The spread operator (...) is used to copy and expand: arrays, objects
     setExpenses((prev) => [next, ...prev]);
     setFlash({ type: "success", message: "Expense added successfully." });
     setAddOpen(false);
